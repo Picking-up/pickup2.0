@@ -1,0 +1,24 @@
+{
+  "name": "pickup2.0",
+  "version": "1.0.0",
+  "description": "Post makersquare",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LycheeXD/pickup2.0.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LycheeXD/pickup2.0/issues"
+  },
+  "homepage": "https://github.com/LycheeXD/pickup2.0#readme"
+}
