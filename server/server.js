@@ -9,7 +9,7 @@ app.use(express.static('./client'));
 // WildCard Route
 // ==================
 app.get('*',function(req,res){
-  res.sendFile('client/index.html')
+  res.sendFile('index.html', {'root':'client'})
 });
 
 app.listen(app.get('port'),function(){
