@@ -1,5 +1,10 @@
 var express = require('express');
 var app = express();
+var dotenv = require('dotenv');
+
+if (!process.env.NODE_ENV || process.env.NODE_ENV !== 'production') {
+  require('dotenv').load();
+}
 
 app.set('port',process.env.PORT || 8888);
 
