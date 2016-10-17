@@ -19,6 +19,30 @@ app.use(bodyParser.json());
 
 var Users = require('./models/Users');
 
+app.get('/api/users', function(req, res) {
+  Users.findAll()
+  .then(function(users) {
+    res.json(users.models)
+  })
+  .catch(function(error) {
+    res.status(500).json(error);
+  })
+})
+
+app.post('/api/users', function(req, res) {
+  console.log("REQDOTBODY", req.body)
+  Users.create({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password
+  })
+  .then(function() {
+    res.json('users post success')
+  })
+  .catch(function() {
+    res.status(500).json(error);
+  })
+})
 
 // TESTING ENDS
 // ==================
@@ -28,10 +52,10 @@ var Users = require('./models/Users');
 // WildCard Route
 // ==================
 
-app.get('*',function(req,res){
+app.get('*',function(req, res){
   res.sendFile('index.html', {'root':'client'})
 });
 
-app.listen(app.get('port'),function(){
+app.listen(app.get('port'), function(){
   console.log('Express server listening on ' , app.get('port'));
 });
