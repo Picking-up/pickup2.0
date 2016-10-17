@@ -1,13 +1,13 @@
-var dotenv = require('dotenv');
+// var dotenv = require('dotenv');
 
-if (!process.env.NODE_ENV || process.env.NODE_ENV !== 'production') {
-  require('dotenv').load();
-}
+// if (!process.env.NODE_ENV || process.env.NODE_ENV !== 'production') {
+//   require('dotenv').load();
+// }
 
 module.exports = {
-  client: process.env.DB_CLIENT,
+  client: 'sqlite3',
   connection: {
-    filename: process.env.DB_CONNECTION
+    filename: 'pickup2.sqlite'
   },
   useNullAsDefault: true,
 };
