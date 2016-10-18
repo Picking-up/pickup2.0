@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var router = require('./router');
 // var dotenv = require('dotenv');
 
 // if (!process.env.NODE_ENV || process.env.NODE_ENV !== 'production') {
@@ -13,39 +14,25 @@ app.use(express.static('./client'));
 app.use(bodyParser.json());
 
 // ==================
-// TESTING ROUTES
+// ROUTER
 
-// app.set("env", process.env.NODE_ENV || "development");
+// // CORS
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+//   res.header('Access-Control-Allow-Headers',
+//     'Content-Type, X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name');
+//   next();
+// });
 
-var Users = require('./models/Users');
+router(app, require('./controllers/public/controllers')).init();
 
-app.get('/api/users', function(req, res) {
-  Users.findAll()
-  .then(function(users) {
-    res.json(users.models)
-  })
-  .catch(function(error) {
-    res.status(500).json(error);
-  })
-})
 
-app.post('/api/users', function(req, res) {
-  console.log("REQDOTBODY", req.body)
-  Users.create({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password
-  })
-  .then(function() {
-    res.json('users post success')
-  })
-  .catch(function() {
-    res.status(500).json(error);
-  })
-})
 
-// TESTING ENDS
 // ==================
+// ROUTER ENDS
+
+
 
 
 // ==================
