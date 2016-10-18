@@ -1,9 +1,9 @@
-module.exports = (app, routes) => {
+module.exports = function(app, routes) {
   return {
-    init: () => {
+    init: function() {
       for(var path in routes) {
         app.use(path, routes[path]);
       }
     }
-  };
+  }
 }
