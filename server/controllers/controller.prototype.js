@@ -7,6 +7,6 @@ module.exports = (function() {
         path: attributes.path || '',
         router: express.Router()
       };
-    } 
-  }; 
+    }
+  };
 })();

@@ -8,6 +8,7 @@ import  injectTapEventPlugin  from 'react-tap-event-plugin';
 import App from './components/App';
 import Landing from './components/Landing';
 import Map from './components/Map';
+import Post from './components/Post';
 
 //material-ui
 injectTapEventPlugin();
@@ -16,6 +17,7 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={Landing} />
     <Route path="map" component={Map} />
+    <Route path="post" component={Post} />
   </Route>
 
 );

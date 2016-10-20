@@ -5,7 +5,6 @@ exports.up = function(knex, Promise) {
       table.increments('id').primary();
       table.string('location', 150);
       table.string('sports', 30);
-      table.dateTime('dateTime');
       table.integer('players');
       table.timestamps();
     })
