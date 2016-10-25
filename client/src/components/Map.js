@@ -5,6 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Drawer from 'material-ui/Drawer';
 import SvgIcon from 'material-ui/SvgIcon';
 import MenuItem from 'material-ui/MenuItem';
+import { Link } from 'react-router';
 
 
 
@@ -14,6 +15,7 @@ class Map extends Component {
     this.state = {
       open: false
     };
+  this.onSearchSubmit = this.onSearchSubmit.bind(this);
   }
 
 
@@ -22,6 +24,9 @@ class Map extends Component {
     this.setState({open: !this.state.open})
   }
 
+  onSearchSubmit() {
+    console.log("hello")
+  }
 
    render(){
      const coords = {
@@ -62,7 +67,7 @@ class Map extends Component {
               onMapCreated={this.onMapCreated}/>
               <form className='animated fadeIn'>
                 <input type='text' placeholder='find a game' />
-                <button>search</button>
+                <Link to="home" onClick={this.onSearchSubmit}><button>search</button></Link>
               </form>
       </div>
     </div>
