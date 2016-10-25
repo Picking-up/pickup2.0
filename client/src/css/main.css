@@ -13,3 +13,20 @@
   float: right;
   z-index: 1000;
 }
+
+
+.map {
+  width: 60%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.events {
+  width: 40%;
+  height: 100%;
+  float: right;
+  top: 0;
+  right: 0;
+}
