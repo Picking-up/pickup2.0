@@ -6,6 +6,9 @@ import Drawer from 'material-ui/Drawer';
 import SvgIcon from 'material-ui/SvgIcon';
 import MenuItem from 'material-ui/MenuItem';
 import { Link } from 'react-router';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { searchEvents } from '../actions/searchEvents';
 
 
 
@@ -65,10 +68,6 @@ class Map extends Component {
               params={{v: '3.exp', key:'AIzaSyAB5tiiDGVCleRxo6tGkyGJjQ_BDtBHF_w'}}
               mapTypeControl={false}
               onMapCreated={this.onMapCreated}/>
-              <form className='animated fadeIn'>
-                <input type='text' placeholder='find a game' />
-                <Link to="home" onClick={this.onSearchSubmit}><button>search</button></Link>
-              </form>
       </div>
     </div>
 
@@ -76,4 +75,13 @@ class Map extends Component {
    }
  }
 
- export default Map
+//  <form className='animated fadeIn'>
+//    <input type='text' placeholder='find a game' />
+//    <Link to="home" onClick={this.onSearchSubmit}><button>search</button></Link>
+//  </form>
+
+ function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ searchEvents }, dispatch);
+ }
+
+ export default connect(mapDispatchToProps)(Map);
