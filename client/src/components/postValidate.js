@@ -5,10 +5,13 @@ const validate = values => {
   }
   if (!values.sports) {
     errors.sports = 'Required'
-  } 
+  }
   if (!values.players) {
     errors.players = 'Required'
+  } else if(isNaN(values.players)){
+    errors.players = 'Please enter a Number of players'
   }
+
 
   return errors
 }
