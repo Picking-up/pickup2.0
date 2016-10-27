@@ -9,35 +9,41 @@ class UpdateGame extends Component {
 
   onSubmit(props){
     console.log(props,'this is the props')
+    PostEvent(props);
+    browserHistory.push('/map')
 
   }
-   renderInput = field =>{
-     console.log('fields of error',field.meta.error)
-   return(
-      <div>
-        <label>{field.label}</label>
-        <input {...field.input} placeholder={field.placeholder} type={field.type}/>
-        {field.touched && field.meta.error && <span>{field.meta.error}</span>}
-      </div>
-    )
-  }
+
+  renderField = ({ input, label, type, meta: { touched, error, warning } }) => {
+    return(
+          <div>
+          <label>{label}</label>
+          <div>
+            <input {...input} placeholder={label} type={type}/>
+            {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+          </div>
+          </div>
+        )
+      }
 
   render(){
       const { handleSubmit } = this.props;
+
+
 
     return(
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <h3>Add Event</h3>
             <div>
-              <Field    className='form-control' name='location' component={this.renderInput} label='location' placeholder='location'/>
+              <Field  className='form-control' name='location' component={this.renderField} label='location' placeholder='location'/>
             </div>
 
             <div>
-              <Field className='form-control' name='players' component={this.renderInput} label='players' placeholder='number' />
+              <Field className='form-control' name='players' component={this.renderField} label='players' placeholder='number' />
             </div>
 
             <div>
-              <Field className='form-control' name='sports' component={this.renderInput} label='sports' placeholder='sports'/>
+              <Field className='form-control' name='sports' component={this.renderField} label='sports' placeholder='sports'/>
             </div>
             <div>
               <button type='submit' className='btn btn-primary'>Add</button>
