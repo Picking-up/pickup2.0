@@ -12,12 +12,14 @@ import { searchEvents } from '../actions/searchEvents';
 
 
 
+
 class Map extends Component {
   constructor(props){
   super(props);
     this.state = {
       open: false
     };
+  this.onSearchSubmit = this.onSearchSubmit.bind(this);
   }
 
 
@@ -26,6 +28,9 @@ class Map extends Component {
     this.setState({open: !this.state.open})
   }
 
+  onSearchSubmit() {
+    console.log("hello")
+  }
 
    render(){
      const coords = {
