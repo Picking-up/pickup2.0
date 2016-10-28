@@ -75,10 +75,10 @@ class Map extends Component {
    }
  }
 
-//  <form className='animated fadeIn'>
-//    <input type='text' placeholder='find a game' />
-//    <Link to="home" onClick={this.onSearchSubmit}><button>search</button></Link>
-//  </form>
+              //  <form className='animated fadeIn'>
+              //   <input type='text' placeholder='find a game' />
+              //   <Link to="home" onClick={this.onSearchSubmit}><button>search</button></Link>
+              // </form>
 
  function mapDispatchToProps(dispatch) {
   return bindActionCreators({ searchEvents }, dispatch);
