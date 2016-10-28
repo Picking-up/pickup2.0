@@ -8,10 +8,8 @@ class UpdateGame extends Component {
 
 
   onSubmit(props){
-    console.log(props,'this is the props')
     PostEvent(props);
     browserHistory.push('/map')
-
   }
 
   renderField = ({ input, label, type, meta: { touched, error, warning } }) => {
@@ -28,12 +26,10 @@ class UpdateGame extends Component {
 
   render(){
       const { handleSubmit } = this.props;
-
-
-
     return(
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <h3>Add Event</h3>
+
             <div>
               <Field  className='form-control' name='location' component={this.renderField} label='location' placeholder='location'/>
             </div>
