@@ -18,7 +18,6 @@ class Map extends Component {
     this.state = {
       open: false
     };
-  this.onSearchSubmit = this.onSearchSubmit.bind(this);
   }
 
 
@@ -27,9 +26,6 @@ class Map extends Component {
     this.setState({open: !this.state.open})
   }
 
-  onSearchSubmit() {
-    console.log("hello")
-  }
 
    render(){
      const coords = {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import Searchbar from './Searchbar';
 
 class Navbar extends Component {
 
@@ -20,7 +21,7 @@ class Navbar extends Component {
             </div>
 
             <div className="nav navbar-nav">
-              <li><form id="demo-2"><input type="search" placeholder="Search" /></form></li>
+              <li><Searchbar /></li>
               <li><Link><a>something else here</a></Link></li>
             </div>
             <div className="collapse navbar-collapse" id="bs-navbar-collapse">
