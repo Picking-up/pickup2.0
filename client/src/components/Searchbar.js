@@ -26,7 +26,7 @@ class Searchbar extends Component {
   render() {
     return(
       <div>
-        <form id="demo-2" onSubmit={this.onSearchSubmit}>
+        <form id="searchbar" onSubmit={this.onSearchSubmit}>
           <input type="search" value={this.state.searchQuery} onChange={this.onInputChange} />
         </form>
       </div>
