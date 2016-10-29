@@ -1,3 +1,5 @@
+/* HOME PAGE: MAP & EVENT LIST VIEW */
+
 .map_canvas {
   position: absolute;
     top:0;
@@ -6,8 +8,6 @@
     right: 0;
     z-index: -1;
 }
-
-
 
 body {
   padding-top: 70px;
@@ -18,23 +18,17 @@ body {
   z-index: 1000;
 }
 
-
-.map {
-  width: 60%;
+#map {
   height: 100%;
   position: fixed;
-  left: 0;
-  top: 0;
 }
 
-.events {
-  width: 40%;
+#events {
   height: 100%;
   float: right;
-  top: 0;
-  right: 0;
 }
 
+/* SEARCH BAR */
 
 input {
   outline: none;
@@ -94,4 +88,13 @@ input::-webkit-input-placeholder {
 }
 #searchbar input::-webkit-input-placeholder {
   color: transparent;
+}
+
+
+.event-cards {
+  width: 47%;
+  border: 1px black solid;
+  margin: 1%;
+  padding: 3px;
+  float: left;
 }

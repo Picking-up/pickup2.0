@@ -8,7 +8,6 @@ import MenuItem from 'material-ui/MenuItem';
 import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { searchEvents } from '../actions/searchEvents';
 
 
 
@@ -76,13 +75,4 @@ class Map extends Component {
    }
  }
 
-              //  <form className='animated fadeIn'>
-              //   <input type='text' placeholder='find a game' />
-              //   <Link to="home" onClick={this.onSearchSubmit}><button>search</button></Link>
-              // </form>
-
- function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchEvents }, dispatch);
- }
-
- export default connect(mapDispatchToProps)(Map);
+ export default Map;
