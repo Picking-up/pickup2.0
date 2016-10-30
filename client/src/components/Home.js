@@ -7,10 +7,10 @@ class Home extends Component {
   render() {
     return (
       <div >
-        <div className="col-lg-8" id="map">
+        <div className="col-sm-8" id="map">
           <Map />
         </div>
-        <div className='col-lg-4' id="events">
+        <div className='col-sm-4' id="events">
           <Events />
         </div>
       </div>

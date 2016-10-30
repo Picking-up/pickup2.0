@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { searchEvents } from '../actions/searchEvents';
 
 
+
+
+
 class Searchbar extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +20,7 @@ class Searchbar extends Component {
   onSearchSubmit(event) {
     event.preventDefault();
     console.log("SEARCH QUERY: ", this.state.searchQuery)
+    // console.log("CONVERTADDRESS: ", convertAddress(this.state.searchQuery));
     this.props.searchEvents(this.state.searchQuery);
   }
 
