@@ -8,5 +8,7 @@ export default (state = INITIAL_STATE, action) => {
       ...state,
       coord: action.payload
     }
+
+    default: return state;
   }
 }
