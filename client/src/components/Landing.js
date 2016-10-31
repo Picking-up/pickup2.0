@@ -5,7 +5,7 @@ class Landing extends Component {
   render() {
     return (
       <div>
-        <Link to="map">go to map</Link>
+        <Link to="home">go to map</Link>
       </div>
     )
   }
