@@ -9,7 +9,7 @@ class UpdateGame extends Component {
 
   onSubmit(props){
     PostEvent(props);
-    browserHistory.push('/map')
+    browserHistory.push('/home')
   }
 
   renderField = ({ input, label, type, meta: { touched, error, warning } }) => {
