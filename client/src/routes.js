@@ -10,6 +10,8 @@ import Landing from './components/Landing';
 import Home from './components/Home';
 import Map from './components/Map';
 import Post from './components/Post';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
 
 //material-ui
 injectTapEventPlugin();
@@ -19,6 +21,8 @@ export default (
     <IndexRoute component={Landing} />
     <Route path="home" component={Home} />
     <Route path="post" component={Post} />
+    <Route path="SignIn" component={SignIn} />
+    <Route path="SignUp" component={SignUp} />
   </Route>
 
 );
