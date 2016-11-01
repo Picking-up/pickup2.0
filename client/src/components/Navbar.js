@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Searchbar from './Searchbar';
+import { LinkContainer } from 'react-router-bootstrap';
 
 class Navbar extends Component {
 
@@ -22,12 +23,12 @@ class Navbar extends Component {
 
             <div className="nav navbar-nav">
               <li><Searchbar /></li>
-              <li><Link><a>something else here</a></Link></li>
+              <li><Link>something else here</Link></li>
             </div>
             <div className="collapse navbar-collapse" id="bs-navbar-collapse">
               <div className="nav navbar-nav navbar-right">
-                <li><a><Link>Sign In</Link></a></li>
-                <li><a><Link>Sign Up</Link></a></li>
+                <li><Link to="SignIn">Sign In</Link></li>
+                <li><Link to="SignUp">Sign Up</Link></li>
               </div>
             </div>
           </div>

@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { searchEvents } from '../actions/searchEvents';
+
+
+
+
 
 class Searchbar extends Component {
   constructor(props) {
@@ -12,7 +19,9 @@ class Searchbar extends Component {
 
   onSearchSubmit(event) {
     event.preventDefault();
-    console.log(this.state.searchQuery)
+    console.log("SEARCH QUERY: ", this.state.searchQuery)
+    // console.log("CONVERTADDRESS: ", convertAddress(this.state.searchQuery));
+    this.props.searchEvents(this.state.searchQuery);
   }
 
   onInputChange(event) {
@@ -34,4 +43,10 @@ class Searchbar extends Component {
   }
 }
 
-export default Searchbar;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ searchEvents }, dispatch);
+}
+
+// export default Searchbar;
+
+export default connect(null, mapDispatchToProps)(Searchbar);

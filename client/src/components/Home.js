@@ -6,11 +6,11 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <div className="map">
+      <div >
+        <div className="col-sm-8" id="map">
           <Map />
         </div>
-        <div className='events'>
+        <div className='col-sm-4' id="events">
           <Events />
         </div>
       </div>
