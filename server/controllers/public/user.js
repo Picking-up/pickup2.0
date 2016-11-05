@@ -19,13 +19,13 @@ module.exports = (function() {
   })
 
   router.post('/', function(req, res) {
-    console.log("REQDOTBODY", req.body)
-    Users.create({
+    new Users({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password
     })
-    .then(function() {
+    .save()
+    .then(function(){
       res.json('users post success')
     })
     .catch(function() {

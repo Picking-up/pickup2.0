@@ -1,12 +1,14 @@
 import React,{ Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link, browserHistory } from 'react-router';
+import { newUser } from '../actions/signup';
 import validate from './SignUpValidate'
 
 class SignUp extends Component {
 
   onSubmit(props){
-    console.log('these are props',props);
+    console.log('these are the props', props)
+    newUser(props);
     browserHistory.push('/home');
   }
 
