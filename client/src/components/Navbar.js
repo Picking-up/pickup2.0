@@ -4,8 +4,6 @@ import Searchbar from './Searchbar';
 import { LinkContainer } from 'react-router-bootstrap';
 
 class Navbar extends Component {
-
-
   render() {
     return (
       <div>
@@ -20,16 +18,15 @@ class Navbar extends Component {
               </button>
               <li><Link to="/" className="navbar-brand">PickUp2.0</Link></li>
             </div>
-
             <div className="nav navbar-nav">
               <li><Searchbar /></li>
               <li><Link>something else here</Link></li>
             </div>
             <div className="collapse navbar-collapse" id="bs-navbar-collapse">
-              <div className="nav navbar-nav navbar-right">
-                <li><Link to="SignIn">Sign In</Link></li>
-                <li><Link to="SignUp">Sign Up</Link></li>
-              </div>
+                 <div className="nav navbar-nav navbar-right">
+                   <li><Link to="SignIn">Sign In</Link></li>
+                   <li><Link to="SignUp">Sign Up</Link></li>
+               </div>
             </div>
           </div>
         </nav>

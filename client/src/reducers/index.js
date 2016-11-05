@@ -3,6 +3,7 @@ import { reducer as FormReducer } from 'redux-form';
 import { validate } from '../components/postValidate';
 import EventReducer from './event_reducer';
 import CoordReducer from './coord_reducer';
+import Authentication from './authReducer';
 
 import TestReducer from './test';
 
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
   form: FormReducer,
   event: EventReducer,
   coord: CoordReducer,
-  test: TestReducer
+  test: TestReducer,
+  auth: Authentication
 });
 
 export default rootReducer;
