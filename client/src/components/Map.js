@@ -40,15 +40,15 @@ class Map extends Component {
           location={event.location}
           players={event.players}
           sports={event.sports}
-          onClick={this.onMarkerClick}
+          onClick={() => this.onMarkerClick(event)}
         />
 
       )
     })
   }
 
-  onMarkerClick() {
-    console.log("EVENTINFO: ", this)
+  onMarkerClick(event) {
+    console.log("MARKER EVENTINFO: ", event)
   }
 
   render(){
