@@ -25,6 +25,8 @@ module.exports = (function(){
       console.log("REQDOTBODY", req.body)
       Events.create({
         location: req.body.location,
+        lng: req.body.lng,
+        lat: req.body.lat,
         sports: req.body.sports,
         players: req.body.player
       })
