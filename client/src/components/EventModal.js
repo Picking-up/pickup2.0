@@ -6,7 +6,7 @@ class EventModal extends Component {
 
   render() {
     return(
-      <Modal>
+      <Modal show={} onHide={}>
         <Modal.Header closeButton>
           <Modal.Title>TITLE HERE</Modal.Title>
         </Modal.Header>
