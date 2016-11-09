@@ -14,9 +14,6 @@ const createStoreWithMiddleware = compose(applyMiddleware(thunk, promise))(creat
 
 const store = createStoreWithMiddleware(rootReducer)
 
-// const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
-
-// const store = createStoreWithMiddleware(reducers);
 
 ReactDOM.render(
   <Provider store={store}>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Eventlist = (props) => {
   return (
-    <div className="event-cards">
+    <div className="event-cards" onClick={props.eventClick}>
       <div>
         {props.sports}
       </div>

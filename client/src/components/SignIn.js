@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
 import { browserHistory } from 'react-router';
+import { signInUser } from '../actions/signin';
 import validate from './SignInValidate';
 
 
 class SignIn extends Component {
 
   onSubmit(props){
-    console.log('these are props', props);
-    browserHistory.push('/home');
+    this.props.dispatch(signInUser(props));
+    // browserHistory.push('/home');
   }
 
   renderField = ({ input, label, type, meta: { touched, error, warning } }) => {
@@ -39,7 +42,9 @@ class SignIn extends Component {
   }
 }
 
+
+
 export default reduxForm({
   form:'SignInForm',
   validate
-},null)(SignIn)
+})(SignIn)

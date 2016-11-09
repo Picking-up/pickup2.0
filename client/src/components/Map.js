@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Gmaps, Marker, InfoWindow, Circle } from 'react-gmaps';
+import { Gmaps, Marker } from 'react-gmaps';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Drawer from 'material-ui/Drawer';
 import SvgIcon from 'material-ui/SvgIcon';
@@ -9,12 +9,14 @@ import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { fetchEventInfo } from '../actions/eventModalInfo'
 
 
 
 class Map extends Component {
   constructor(props){
     super(props);
+
     this.state = {
       open: false
     };
@@ -23,6 +25,32 @@ class Map extends Component {
   handleToggle(e){
     e.preventDefault();
     this.setState({open: !this.state.open})
+  }
+
+  renderMarker() {
+    if(!this.props.events) {
+      return (
+        null
+      )
+    }
+    return this.props.events.map((event) => {
+      return (
+        <Marker 
+          key={event.id}
+          lat={event.lat}
+          lng={event.lng}
+          location={event.location}
+          players={event.players}
+          sports={event.sports}
+          onClick={() => this.props.fetchEventInfo(event)}
+        />
+
+      )
+    })
+  }
+
+  onMarkerClick(event) {
+    console.log("MARKER EVENTINFO: ", event)
   }
 
   render(){
@@ -49,7 +77,9 @@ class Map extends Component {
           params={{v: '3.exp', key:'AIzaSyAB5tiiDGVCleRxo6tGkyGJjQ_BDtBHF_w'}}
           mapTypeControl={false}
           onMapCreated={this.onMapCreated}
-        />
+        >
+          {this.renderMarker()}
+        </Gmaps>
       </div>
     )
   }
@@ -57,10 +87,15 @@ class Map extends Component {
 
 function mapStateToProps(state) {
   return {
-    coord: state.coord.coord
+    coord: state.coord.coord,
+    events: state.event.allEvents
   }
 }
 
-export default connect(mapStateToProps)(Map);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchEventInfo }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Map);
 
 // export default Map;
