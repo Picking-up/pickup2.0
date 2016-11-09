@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Searchbar from './Searchbar';
 import { LinkContainer } from 'react-router-bootstrap';
-<<<<<<< 53eb979550076559c02d4f23dfdb407b7ea3001b
 import { DropdownButton, MenuItem, ButtonToolbar } from 'react-bootstrap';
-=======
 import { connect } from 'react-redux';
->>>>>>> [CLIENTSIDEAUTH]add auth for sign in
 
 class Navbar extends Component {
   navBarChange = () =>{
