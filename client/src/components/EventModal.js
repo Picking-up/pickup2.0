@@ -10,11 +10,13 @@ class EventModal extends Component {
     return(
       <Modal show={false || this.props.showModal} onHide={this.props.hideModal}>
         <Modal.Header closeButton>
-          <Modal.Title>TITLE HERE</Modal.Title>
+          <Modal.Title>{this.props.eventDetails ? this.props.eventDetails.sports : null}</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <p>BODY HERE</p>
+          <p>location: {this.props.eventDetails ? this.props.eventDetails.location : null}</p>
+          <p>players: {this.props.eventDetails ? this.props.eventDetails.players : null}</p>
+          <p>Temp Date: {this.props.eventDetails ? new Date(this.props.eventDetails.updated_at).toString() : null}</p>
         </Modal.Body>
 
         <Modal.Footer>
