@@ -30,6 +30,13 @@ module.exports = (function() {
           })
         })
       })
+    },
+
+    comparePassword: function(password, done){
+      var model = this;
+      bcrypt.compare(password, model.get('password'), function(err, isMatch){
+        done(err, isMatch);
+      })
     }
   }))
 })();

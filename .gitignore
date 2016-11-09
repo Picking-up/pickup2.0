@@ -3,3 +3,4 @@ bundle.js
 /node_modules
 
 pickup2.sqlite
+config.js

@@ -1,11 +1,13 @@
 // var event = require('./event');
 var user = require('./user');
 var event = require('./event');
+var signIn = require('./signIn');
 
 module.exports = (() => {
   let controllers = [
     event,
-    user
+    user,
+    signIn
   ];
 
   let router = {};
