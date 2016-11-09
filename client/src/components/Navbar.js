@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Searchbar from './Searchbar';
 import { LinkContainer } from 'react-router-bootstrap';
+import { DropdownButton, MenuItem, ButtonToolbar } from 'react-bootstrap';
 
 class Navbar extends Component {
   render() {
@@ -19,8 +20,18 @@ class Navbar extends Component {
               <li><Link to="/" className="navbar-brand">PickUp2.0</Link></li>
             </div>
             <div className="nav navbar-nav">
-              <li><Searchbar /></li>
-              <li><Link>something else here</Link></li>
+              <li id="searchbar"><Searchbar /></li>
+              <li>  
+                <ButtonToolbar id="dropdown" >
+                  <DropdownButton  title="Search Radius" noCaret id="dropdown-no-caret" onSelect={(eventKey) => {console.log(eventKey)}}>
+                    <MenuItem eventKey="1">5 Miles</MenuItem>
+                    <MenuItem eventKey="2">10 Miles</MenuItem>
+                    <MenuItem eventKey="3">20 Miles</MenuItem>
+                    <MenuItem divider />
+                    <MenuItem eventKey="4">something else</MenuItem>
+                  </DropdownButton>
+                </ButtonToolbar>
+              </li>
             </div>
             <div className="collapse navbar-collapse" id="bs-navbar-collapse">
                  <div className="nav navbar-nav navbar-right">
