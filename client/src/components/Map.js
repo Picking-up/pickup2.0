@@ -9,6 +9,8 @@ import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { fetchEventInfo } from '../actions/eventModalInfo'
+
 
 
 class Map extends Component {
@@ -40,15 +42,15 @@ class Map extends Component {
           location={event.location}
           players={event.players}
           sports={event.sports}
-          onClick={this.onMarkerClick}
+          onClick={() => this.props.fetchEventInfo(event)}
         />
 
       )
     })
   }
 
-  onMarkerClick() {
-    console.log("EVENTINFO: ", this)
+  onMarkerClick(event) {
+    console.log("MARKER EVENTINFO: ", event)
   }
 
   render(){
@@ -90,6 +92,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Map);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchEventInfo }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Map);
 
 // export default Map;

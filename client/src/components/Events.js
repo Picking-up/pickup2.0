@@ -6,6 +6,10 @@ import Eventlist from './Eventlist';
 
 class Events extends Component {
 
+  onEventClick(event) {
+    console.log("EVENTLIST EVENTINFO: ", event);
+  }
+
   renderList() {
     if(!this.props.events) {
       return (
@@ -19,6 +23,7 @@ class Events extends Component {
           sports={event.sports}
           location={event.location}
           players={event.players}
+          eventClick={() => this.onEventClick(event)}
         />
       )
     })
