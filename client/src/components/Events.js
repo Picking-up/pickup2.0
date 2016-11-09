@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { bindActionCreators } from 'redux';
 import Eventlist from './Eventlist';
+import { fetchEventInfo } from '../actions/eventModalInfo';
 
 
 class Events extends Component {
-
-  onEventClick(event) {
-    console.log("EVENTLIST EVENTINFO: ", event);
-  }
 
   renderList() {
     if(!this.props.events) {
@@ -23,7 +20,7 @@ class Events extends Component {
           sports={event.sports}
           location={event.location}
           players={event.players}
-          eventClick={() => this.onEventClick(event)}
+          eventClick={() => this.props.fetchEventInfo(event)}
         />
       )
     })
@@ -45,5 +42,8 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Events);
-// export default Events;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchEventInfo }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Events);
