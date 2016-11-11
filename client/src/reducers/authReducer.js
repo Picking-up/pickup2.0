@@ -1,20 +1,21 @@
 const initialState = {
-  token:undefined,
-  user: {}
-};
+  authentication:false,
+  user:{},
+  token: undefined
+}
 
 
 export default function auth(state = initialState, action) {
-  if(!state.hydrated) {
-    state = Object.assign({}, initialState, state , { hydrated:true })
-  }
   switch (action.type) {
     case 'AUTH_USER':
-      return Object.assign({}, state, {
-      token: action.token,
-      user: action.user
-    });
-    default:
-      return state;
+      return {...state, authentication:true, user: action.user, token: action.toker}
+    case 'UNAUTH_USER':
+      return {...state, authentication:false}
+
+      default:
+        console.log('this is the state from the reducer', state)
+        return state;
+
+    }
+
   }
-}
