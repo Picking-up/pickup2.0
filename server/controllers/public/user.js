@@ -1,5 +1,7 @@
 var ControllerPrototype = require('../controller.prototype.js');
 var Users = require('../../models/Users');
+var authHelper = require('../../helper/authHelper');
+
 
 module.exports = (function() {
   var controller = ControllerPrototype.create({
@@ -25,8 +27,12 @@ module.exports = (function() {
       password: req.body.password
     })
     .save()
-    .then(function(){
-      res.json('users post success')
+    .then(function(user){
+      console.log(user,'this is the user log')
+      res.json({
+      token:authHelper.generateToken(user),
+      user: user.toJSON()
+    })
     })
     .catch(function() {
       res.status(500).json(error);
