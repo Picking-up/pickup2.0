@@ -19,9 +19,11 @@ export function signInUser(props){
         .then((data) => {
           dispatch({
             type:'AUTH_USER',
+            token: data.token,
             user: data.user
           });
           localStorage.setItem('token', data.token);
+          localStorage.setItem('user', data.user);
         })
       }
     })
@@ -34,6 +36,7 @@ export function signOutUser(){
       type:'UNAUTH_USER',
     });
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     }
 
 }
