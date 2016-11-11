@@ -11,7 +11,7 @@ class SignIn extends Component {
 
   onSubmit(props){
     this.props.dispatch(signInUser(props));
-    // browserHistory.push('/home');
+    browserHistory.push('/home');
   }
 
   renderField = ({ input, label, type, meta: { touched, error, warning } }) => {

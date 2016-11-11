@@ -39,6 +39,7 @@
     "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.6.0",
     "redux-form": "^6.1.1",
+    "redux-persist": "^4.0.0-alpha7",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",
     "sqlite3": "^3.1.6",

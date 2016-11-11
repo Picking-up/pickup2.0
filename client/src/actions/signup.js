@@ -2,6 +2,7 @@ export const newUser = (props) => {
   const name = props.username
   const password = props.password
   const email = props.email
+  return (dispatch) => {
   return fetch('/api/users', {
     method:'POST',
     headers: {
@@ -14,9 +15,11 @@ export const newUser = (props) => {
     })
   })
   .then((response) => {
-    console.log('in here');
     if(response.ok){
-      console.log('it workxx')
+      dispatch({
+        type:'AUTH_USER'
+      })
     }
   })
+}
 }

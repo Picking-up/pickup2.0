@@ -8,7 +8,7 @@ class SignUp extends Component {
 
   onSubmit(props){
     console.log('these are the props', props)
-    newUser(props);
+    this.props.dispatch(newUser(props));
     browserHistory.push('/home');
   }
 
