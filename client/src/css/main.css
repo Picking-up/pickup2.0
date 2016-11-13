@@ -109,6 +109,10 @@ input::-webkit-input-placeholder {
   background: #f8f8f8;
 }
 
+.open > .dropdown-menu {
+  margin-left: 10px;
+}
+
 #dropdown > .btn-group > .btn:first-child:hover {
   border: none;
 }

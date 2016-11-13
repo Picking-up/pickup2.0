@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { DropdownButton, MenuItem, ButtonToolbar } from 'react-bootstrap';
+import { getRadius } from '../actions/searchEvents';
 
 class SearchRadius extends Component {
 
@@ -8,7 +10,7 @@ class SearchRadius extends Component {
   render() {
     return (
       <ButtonToolbar id="dropdown">
-        <DropdownButton  title={"Search Radius"} noCaret id="dropdown-no-caret" onSelect={(eventKey) => {console.log(typeof eventKey, eventKey)}}>
+        <DropdownButton  title={this.props.radius ? this.props.radius : "Search Radius"} noCaret id="dropdown-no-caret" onSelect={(eventKey) => {this.props.getRadius(eventKey)}}>
           <MenuItem eventKey={5}>5 Miles</MenuItem>
           <MenuItem eventKey={10}>10 Miles</MenuItem>
           <MenuItem eventKey={20}>20 Miles</MenuItem>
@@ -20,4 +22,15 @@ class SearchRadius extends Component {
   }
 }
 
-export default SearchRadius;
+function mapStateToProps(state) {
+  return {
+    radius: state.event.eventRadius,
+    coord: state.coord.coord
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ getRadius }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchRadius);
