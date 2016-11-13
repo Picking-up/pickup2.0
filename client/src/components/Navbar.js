@@ -4,8 +4,6 @@ import Searchbar from './Searchbar';
 import { LinkContainer } from 'react-router-bootstrap';
 import { connect } from 'react-redux';
 import SearchRadius from './SearchRadius';
-import { DropdownButton, MenuItem, ButtonToolbar } from 'react-bootstrap';
-import { connect } from 'react-redux';
 
 class Navbar extends Component {
   navBarChange = () =>{
