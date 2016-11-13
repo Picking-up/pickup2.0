@@ -55,6 +55,7 @@ input::-webkit-search-cancel-button {
 
 
 input[type=search] {
+  margin-top: 5px;
   background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
   border: solid 1px #ccc;
   padding: 9px 10px 9px 32px;
@@ -98,5 +99,29 @@ input::-webkit-input-placeholder {
 #searchbar input::-webkit-input-placeholder {
   color: transparent;
 }
+
+/* DROPDOWN */
+
+#dropdown > .btn-group > .btn:first-child {
+  margin-left: 10px;
+  margin-top: 7px;
+  border: none;
+  background: #f8f8f8;
+}
+
+.open > .dropdown-menu {
+  margin-left: 10px;
+}
+
+#dropdown > .btn-group > .btn:first-child:hover {
+  border: none;
+}
+
+/* LOGO */
+
+.navbar-default .navbar-brand {
+  padding-top: 17px;
+}
+
 
 
