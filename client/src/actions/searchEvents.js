@@ -1,4 +1,5 @@
 import { convertAddress } from '../utils/helper';
+// import $ from 'jquery'
 
 
 export const ALL_EVENTS = "ALL_EVENTS";
@@ -10,13 +11,13 @@ export const searchEvents = (props) => {
   console.log("inside search")
   return (dispatch) => {
     convertAddress(props)
-    .then((coord) => {
-      console.log("COORDINATE: ", coord);
+    .then((location) => {
+      console.log("COORDINATE: ", location);
       dispatch({
         type: SEARCH_COORD,
-        payload: coord
+        payload: location
       })
-      return fetch('/api/events', {
+      return fetch('/api/events?location=' + JSON.stringify(location), {
         method: "GET",
         headers: {
           'Content-Type': 'application/json'
