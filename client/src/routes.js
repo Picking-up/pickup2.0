@@ -21,6 +21,11 @@ injectTapEventPlugin();
 
 
 export default function getRoutes(store){
+  const isAuthenticated = () => {
+    return localStorage.getItem('token') && localStorage.getItem('user');
+  }
+  const passifAuthenticated = (nextState,replace) =>
+  { if(isAuthenticated){ replace('/')} }
   return(
     <Route path="/" component={App}>
       <IndexRoute component={Landing} />

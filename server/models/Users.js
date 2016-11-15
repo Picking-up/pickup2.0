@@ -35,6 +35,9 @@ module.exports = (function() {
     comparePassword: function(password, done){
       var model = this;
       bcrypt.compare(password, model.get('password'), function(err, isMatch){
+        if(password == null){
+          done(err);
+        }
         done(err, isMatch);
       })
     }

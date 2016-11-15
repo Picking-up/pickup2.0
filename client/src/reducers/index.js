@@ -5,6 +5,7 @@ import EventReducer from './event_reducer';
 import CoordReducer from './coord_reducer';
 import Authentication from './authReducer';
 import EventModalReducer from './eventModal_reducer';
+import errorMessage from './error';
 import TestReducer from './test';
 
 
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   eventModal: EventModalReducer,
   coord: CoordReducer,
   test: TestReducer,
-  auth: Authentication
+  auth: Authentication,
+  error: errorMessage
 });
 
 export default rootReducer;

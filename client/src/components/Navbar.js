@@ -3,16 +3,17 @@ import { Link } from 'react-router';
 import Searchbar from './Searchbar';
 import { LinkContainer } from 'react-router-bootstrap';
 import { connect } from 'react-redux';
+import SearchRadius from './SearchRadius';
 
 class Navbar extends Component {
   navBarChange = () =>{
-    if(!this.props.authenticated){
-    return(
-            <div className="nav navbar-nav navbar-right">
-              <li><Link to="SignIn">Sign In</Link></li>
-              <li><Link to="SignUp">Sign Up</Link></li>
-            </div>
-        )
+    if(this.props.authenticated == false){
+      return(
+        <div className="nav navbar-nav navbar-right">
+          <li><Link to="SignIn">Sign In</Link></li>
+          <li><Link to="SignUp">Sign Up</Link></li>
+        </div>
+      )
     }
     return(
       <div className="nav navbar-nav navbar-right">
@@ -37,11 +38,11 @@ class Navbar extends Component {
             </div>
             <div className="nav navbar-nav">
               <li><Searchbar /></li>
-              <li><Link>something else here</Link></li>
+              <li><SearchRadius /></li>
             </div>
             <div className="collapse navbar-collapse" id="bs-navbar-collapse">
-                  {this.navBarChange()}
-                </div>
+              {this.navBarChange()}
+            </div>
           </div>
         </nav>
       </div>

@@ -15,11 +15,19 @@ export const newUser = (props) => {
     })
   })
   .then((response) => {
+    console.log('this is the response from action creator', response)
     if(response.ok){
-      dispatch({
-        type:'AUTH_USER'
-      })
+      return response.json()
     }
+  })
+  .then((data) => {
+    dispatch({
+      type: 'AUTH_USER',
+      token: data.token,
+      user: data.user
+    })
+    localStorage.setItem('token',data.token);
+    localStorage.setItem('user', data.user);
   })
 }
 }
