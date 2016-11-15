@@ -1,8 +1,9 @@
+import {browserHistory} from 'react-router';
+
 export function signInUser(props){
   const username = props.username;
   const password = props.password;
   return (dispatch) => {
-      console.log('ffd')
     return fetch('/api/signIn', {
       method: 'POST',
       headers: {
@@ -17,6 +18,8 @@ export function signInUser(props){
       if(response.ok){
         return response.json()
         .then((data) => {
+          console.log(data,'this is data')
+          if(data != null || data != undefined){
           dispatch({
             type:'AUTH_USER',
             token: data.token,
@@ -24,7 +27,19 @@ export function signInUser(props){
           });
           localStorage.setItem('token', data.token);
           localStorage.setItem('user', data.user);
+          browserHistory.push('/home');
+        }
         })
+      }else{
+        return response.json()
+        .then((data) =>{
+        console.log('Inside the error',data)
+        dispatch({
+          type:'ERROR',
+          msg: data.msg
+        })
+      }
+      );
       }
     })
   };

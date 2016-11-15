@@ -11,9 +11,19 @@ class SignIn extends Component {
 
   onSubmit(props){
     this.props.dispatch(signInUser(props));
-    browserHistory.push('/home');
   }
 
+  errorHandler(){
+    if(this.props.errors ==
+"Invalid email or password"){
+      console.log('in here once again')
+      return(
+      <div>
+        <strong>OOPS!</strong>{this.props.errors}
+      </div>
+    )
+    }
+  }
   renderField = ({ input, label, type, meta: { touched, error, warning } }) => {
     return(
           <div>
@@ -26,7 +36,9 @@ class SignIn extends Component {
         )
       }
   render(){
-    const { handleSubmit } = this.props
+    const { handleSubmit, msg } = this.props
+    console.log(this.props.errors ==
+"Invalid email or password",'this is the props error')
     return(
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <div>
@@ -36,15 +48,25 @@ class SignIn extends Component {
         <div>
           <Field  className='form-control' type='password' name='password' component={this.renderField} label='password' placeholder='password'/>
         </div>
+          {this.errorHandler()}
         <button type='submit' className='btn btn-primary'>submit</button>
       </form>
     )
   }
 }
 
+let mapStateToProps = (state) => {
+  console.log('this is the mapStateToProps', state.error.msg)
+   return {errors: state.error.msg}
+}
 
 
-export default reduxForm({
+
+
+SignIn = reduxForm({
   form:'SignInForm',
   validate
 })(SignIn)
+SignIn = connect(mapStateToProps)(SignIn);
+
+export default SignIn;

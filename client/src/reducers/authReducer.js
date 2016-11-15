@@ -19,7 +19,6 @@ export default function auth(state = initialState, action) {
     case 'UNAUTH_USER':
         return initialState;
       default:
-        console.log('this is the state from the reducer', state)
         return state;
 
     }

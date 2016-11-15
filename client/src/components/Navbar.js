@@ -7,7 +7,7 @@ import SearchRadius from './SearchRadius';
 
 class Navbar extends Component {
   navBarChange = () =>{
-    if(!this.props.authenticated){
+    if(this.props.authenticated == false){
       return(
         <div className="nav navbar-nav navbar-right">
           <li><Link to="SignIn">Sign In</Link></li>
