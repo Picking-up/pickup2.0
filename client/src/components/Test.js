@@ -1,9 +1,7 @@
 import React,{ Component } from 'react';
 import { Parallax,Background } from 'react-parallax';
 
-
-
-class Landing extends Component {
+export default class Test extends Component {
   render(){
     return (
     <div>
@@ -11,9 +9,7 @@ class Landing extends Component {
        <Parallax bgImage="http://sandypoirier.com/wordpress/wp-content/uploads/2015/08/bb-no-logo.jpg" strength={400} className='parallax'>
          <br/>
           <div className='title'>
-           <Parallax strength={400}>
             <h1> BasketBall </h1>
-          </Parallax>
           </div>
        </Parallax>
      </div>
@@ -41,9 +37,9 @@ class Landing extends Component {
           </div>
         </Parallax>
        </div>
-    </div>
+     </div>
+
+
     )
   }
 }
-
-export default Landing

@@ -14,6 +14,7 @@ import Post from './components/Post';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import SignOut from './components/SignOut';
+import Test from './components/Test';
 
 //material-ui
 injectTapEventPlugin();
@@ -34,6 +35,7 @@ export default function getRoutes(store){
       <Route path="SignIn" component={SignIn}  />
       <Route path="SignUp" component={SignUp}  />
       <Route path="SignOut" component={SignOut} />
+      <Route path="Test" component={Test} />
     </Route>
 
   )
