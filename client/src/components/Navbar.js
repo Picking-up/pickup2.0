@@ -22,7 +22,6 @@ class Navbar extends Component {
     )
   }
   render() {
-    console.log('props', this.props.authenticated)
     return (
       <div>
         <nav className="navbar navbar-default navbar-fixed-top">
