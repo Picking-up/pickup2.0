@@ -138,3 +138,9 @@ input::-webkit-input-placeholder {
   border-width: 10px;
 
 }
+
+.form-signIn {
+  max-width: 330px;
+  padding: 40px;
+  margin: 0 auto;
+}
