@@ -27,30 +27,25 @@ class SignIn extends Component {
   renderField = ({ input, label, type, meta: { touched, error, warning } }) => {
     return(
           <div>
-          <label>{label}</label>
-          <div>
-            <input {...input} placeholder={label} type={type}/>
+            <input {...input} placeholder={label} type={type} className='form-control' id="inputdefault"/>
             {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
           </div>
-          </div>
+
         )
       }
   render(){
     const { handleSubmit, msg } = this.props
-    console.log(this.props.errors ==
-"Invalid email or password",'this is the props error')
-    return(
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <div>
-          <Field  className='form-control' name='username' component={this.renderField} label='username' placeholder='username'/>
-        </div>
 
-        <div>
-          <Field  className='form-control' type='password' name='password' component={this.renderField} label='password' placeholder='password'/>
-        </div>
+    return(
+     <div>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className='form-signIn'>
+        <h2 className='form-header'>Please Sign In</h2>
+          <Field component={this.renderField} type='username' name='username' label='username' placeholder='username'  />
+          <Field type='password' name='password' component={this.renderField} label='password' placeholder='password'/>
           {this.errorHandler()}
-        <button type='submit' className='btn btn-primary'>submit</button>
+        <button type='submit' className='btn btn-lg btn-primary btn-block'>submit</button>
       </form>
+    </div>
     )
   }
 }
